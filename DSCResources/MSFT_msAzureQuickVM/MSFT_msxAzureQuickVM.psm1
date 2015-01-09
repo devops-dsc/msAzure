@@ -1,4 +1,4 @@
-﻿#region GET FUNCTION
+#region GET FUNCTION
 
 function Get-TargetResource {
 [CmdletBinding()]
