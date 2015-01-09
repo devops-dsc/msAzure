@@ -16,33 +16,43 @@ configuration CreateSqlDatabase
         $azurePublishSettingsFile
     )
 
-    Import-DscResource -Name MSFT_xAzureSubscription
-    Import-DscResource -Name MSFT_xAzureSqlDatabase
-    Import-DscResource -Name MSFT_xAzureSqlDatabaseServerFirewallRule
+    Import-DscResource -Name 
+    Import-DscResource -Name 
+    Import-DscResource -Name 
 
-    # Verify working directory    if ((test-path $workingDirectory) -eq $false)     {        Write-Warning 'The working directory does not exist.  Exiting script.'        Exit    }
+    # Verify working directory
+    if ((test-path $workingDirectory) -eq $false) 
+    {
+        Write-Warning 'The working directory does not exist.  Exiting script.'
+        Exit
+    }
 
     node localhost 
     {
 
-        xAzureSubscription MSDN        {            Ensure = 'Present'            AzureSubscriptionName = $azureSubscriptionName            AzurePublishSettingsFile = $azurePublishSettingsFile        }
+         MSDN
+        {
+            Ensure = 'Present'
+            AzureSubscriptionName = $azureSubscriptionName
+            AzurePublishSettingsFile = $azurePublishSettingsFile
+        }
         
-        xAzureSqlDatabaseServerFirewallRule firewallRule 
+        ServerFirewallRule firewallRule 
         {
 		    RuleName = $ruleName		
             ServerName = $serverName    
 		    StartIPAddress = $startIPAddress
 		    EndIPAddress = $endIPAddress
-            DependsOn = '[xAzureSubscription]MSDN'
+            DependsOn = '[]MSDN'
 	    }
 
-	    xAzureSqlDatabase sqlDatabase 
+	     sqlDatabase 
         {
 		    Name = $name
 		    ServerCredential = $serverCredential
 		    ServerName = $serverName
             MaximumSizeInGB = 1
-            DependsOn = '[xAzureSqlDatabaseServerFirewallRule]firewallRule'
+            DependsOn = '[ServerFirewallRule]firewallRule'
 	    }
 
         #LocalConfigurationManager 
@@ -66,7 +76,8 @@ $script:configData =
                 );      
 }  
 
-#Sample use (please change values of parameters according to your scenario):$workingDirectory = 'C:\test'
+#Sample use (please change values of parameters according to your scenario):
+$workingDirectory = 'C:\test'
 $azureSubscriptionName = 'Visual Studio Ultimate with MSDN'
 $azurePublishSettingsFile = Join-Path $workingDirectory 'visual.publishsettings'
 $name = "databaseName"

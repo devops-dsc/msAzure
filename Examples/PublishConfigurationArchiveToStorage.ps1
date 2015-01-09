@@ -1,10 +1,10 @@
-﻿# Sample configuration to Publish Configuration Archive to Storage
+# Sample configuration to Publish Configuration Archive to Storage
 
 Configuration PublishToStorage
 {
     Import-DscResource -Module xAzure
 
-    xAzureVMDscConfiguration Publish
+    DscConfiguration Publish
     {
         StorageAccountName          = 'dscazext'
         Ensure                      = 'Present'

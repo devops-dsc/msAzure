@@ -6,15 +6,15 @@
 <br>
 This module includes 6 DSC resources that automate provisioning of resources in Microsoft Azure.</p>
 <ul style="list-style-type:disc; direction:ltr">
-<li><strong>xAzureAffinityGroup</strong> defines the relationship between compute and storage
-</li><li><strong>xAzureQuickVM</strong> simple resource for creating VMs with limited options
-</li><li><strong>xAzureService</strong> creates a cloud service for the VMs </li><li><strong>xAzureStorageAccount</strong> creates the online storage account where the blobs for the test environment will reside
-</li><li><strong>xAzureSubscription</strong> sets the current Azure subscription context
-</li><li><strong>xAzureVM</strong> creates a virtual machine in Azure including access to VM Guest extensions
-</li><li><strong>xAzureVMDscConfiguration</strong> packages and uploads a DSC Configuration for the DSC Extension
-</li><li><strong>xAzureVMDscExtension</strong> uses the DSC Extension to apply a configuration within a VM
-</li><li><strong>xAzureSqlDatabase</strong> creates Azure SQL Database
-</li><li><strong>xAzureSqlDatabaseServerFirewallRule</strong> creates Azure SQL Database Server Firewall Rule
+<li><strong></strong> defines the relationship between compute and storage
+</li><li><strong></strong> simple resource for creating VMs with limited options
+</li><li><strong></strong> creates a cloud service for the VMs </li><li><strong></strong> creates the online storage account where the blobs for the test environment will reside
+</li><li><strong></strong> sets the current Azure subscription context
+</li><li><strong></strong> creates a virtual machine in Azure including access to VM Guest extensions
+</li><li><strong>DscConfiguration</strong> packages and uploads a DSC Configuration for the DSC Extension
+</li><li><strong>DscExtension</strong> uses the DSC Extension to apply a configuration within a VM
+</li><li><strong></strong> creates Azure SQL Database
+</li><li><strong>ServerFirewallRule</strong> creates Azure SQL Database Server Firewall Rule
 </li></ul>
 <br>
 <p><strong>All of the resources in the DSC Resource Kit are provided AS IS, and are not supported through any Microsoft standard support program or service. The &quot;&quot;x&quot; in xAzure stands for experimental</strong>, which means that these resources will be
@@ -36,8 +36,8 @@ This module includes 6 DSC resources that automate provisioning of resources in 
 </ul>
 <p>To confirm installation:</p>
 <ul style="list-style-type:disc; direction:ltr">
-<li>Run <strong>Get-DSCResource</strong> to see that <strong>xAzureAffinityGroup</strong>,
-<strong>xAzureQuickVM</strong>, <strong>xAzureVM</strong>, and <strong>xAzureVMDscExtension</strong> are among the DSC Resources listed
+<li>Run <strong>Get-DSCResource</strong> to see that <strong></strong>,
+<strong></strong>, <strong></strong>, and <strong>DscExtension</strong> are among the DSC Resources listed
 </li></ul>
 <h1 style="color:#2e74b5; font-family:Calibri Light; font-size:large">Requirements</h1>
 <p>This module requires the latest version of PowerShell (v4.0, which ships in Windows 8.1 or Windows Server 2012R2). To easily use PowerShell 4.0 on older operating systems,
@@ -48,10 +48,10 @@ In addition, this module works based on the following assumptions:
 </li><li>You have installed the Windows Azure PowerShell cmdlets package from <a href="http://www.microsoft.com/web/downloads/platform.aspx">
 <span style="color:#0000ff">WebPI</span></a> </li><li>You have downloaded your Publish Settings file (.publishsettings) using Get-AzurePublishSettingsFile and have copied to the working directory set in the Create and SetupSubscription example scripts.
 </li><li>Open .publishsettings in Notepad and copy the name of the subscription to the Clipboard.
-</li><li>Open the .\Create.ps1 script in the ExampleConfigScripts folder and update the name of your subscription and the location of your .publishsettings file in the xAzureSubscription section.
+</li><li>Open the .\Create.ps1 script in the ExampleConfigScripts folder and update the name of your subscription and the location of your .publishsettings file in the  section.
 </li></ul>
 <h1 style="color:#2e74b5; font-family:Calibri Light; font-size:large">Details</h1>
-<p><strong>xAzureAffinityGroup</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>Name</strong>: <span>&nbsp;&nbsp;</span>Specifies a name for the new affinity group that is unique to the subscription.
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Specifies whether the Azure Affinity Group should be present or absent.
@@ -59,7 +59,7 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>Description</strong>: <span>&nbsp;&nbsp;</span>Specifies a description for the affinity group. The description may be up to 1024 characters in length.
 </li><li><strong>Label</strong>: <span>&nbsp;&nbsp;</span>Specifies a label for the affinity group. The label may be up to 100 characters in length.
 </li></ul>
-<p><strong>xAzureQuickVM</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>Name</strong>: <span>&nbsp;&nbsp;</span>Specifies the name of the virtual machine.
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Specifies whether the Azure VM should be present or absent.
@@ -72,7 +72,7 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>Password</strong>: <span>&nbsp;&nbsp;</span>Specifies the password for the administrative account.
 </li><li><strong>InstanceSize</strong>: <span>&nbsp;&nbsp;</span>Specifies the size of the instance. For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure/dn197896.aspx
 </li></ul>
-<p><strong>xAzureService</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>ServiceName</strong>: <span>&nbsp;&nbsp;</span>Specifies a name for the new cloud service that is unique to the subscription.
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Specifies whether the Azure VM should be present or absent.
@@ -80,7 +80,7 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>AffinityGroup</strong>: <span>&nbsp;&nbsp;</span>Specifies a description for the service.
 </li><li><strong>Label</strong>: <span>&nbsp;&nbsp;</span>Specifies a label for the service.
 </li></ul>
-<p><strong>xAzureSqlDatabase</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>Name</strong>: <span>&nbsp;&nbsp;</span>Name of the database </li>
 <li><strong>MaximumSizeInGB</strong>: <span>&nbsp;&nbsp;</span>Maximum size of the database in GB
@@ -92,7 +92,7 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>AzurePublishSettingsFile</strong>: <span>&nbsp;&nbsp;</span>Specifies the location of the Publish Settings file for the Azure Subscription
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Ensure that database is present or absent
 </li></ul>
-<p><strong>xAzureSqlDatabaseServerFirewallRule</strong> resource has following properties:</p>
+<p><strong>ServerFirewallRule</strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>RuleName</strong>: <span>&nbsp;&nbsp;</span>Name of the firewall rule </li>
 <li><strong>ServerName</strong>: <span>&nbsp;&nbsp;</span>Name of the database server for which firewall rule should be created
@@ -102,7 +102,7 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>AzurePublishSettingsFile</strong>: <span>&nbsp;&nbsp;</span>Specifies the location of the Publish Settings file for the Azure Subscription
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Ensure that firewall rule is present or absent
 </li></ul>
-<p><strong>xAzureStorageAccount</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>StorageAccountName</strong>: <span>&nbsp;&nbsp;</span>Specifies a name for the storage account. The storage account name must be unique to Windows Azure and must be between 3 and 24 characters in length and use lowercase letters and numbers only.
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Specifies whether the Azure Storage Account should be present or absent.
@@ -111,13 +111,13 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>Folder</strong>: <span>&nbsp;&nbsp;</span>Specifies a local folder. All files in the root of the folder will be uploaded to the new container.
 </li><li><strong>Label</strong>: <span>&nbsp;&nbsp;</span>Specifies a label for the storage account. The label may be up to 100 characters in length.
 </li></ul>
-<p><strong>xAzureSubscription</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Specifies whether the subscription should be present or absent.
 </li><li><strong>AzureSubscriptionName</strong>: <span>&nbsp;&nbsp;</span>Specifies the name of the Azure subscription that should be set to Current.
 </li><li><strong>AzurePublishSettingsFile</strong>: <span>&nbsp;&nbsp;</span>Specifies the location of the Publish Settings file for the Azure Subscription.
 </li></ul>
-<p><strong>xAzureVM</strong> resource has following properties:</p>
+<p><strong></strong> resource has following properties:</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li><strong>Name</strong>: <span>&nbsp;&nbsp;</span>Specifies the name of the virtual machine.
 </li><li><strong>Ensure</strong>: <span>&nbsp;&nbsp;</span>Specifies whether the Azure VM should be present or absent.
@@ -133,7 +133,7 @@ In addition, this module works based on the following assumptions:
 </li><li><strong>ExtensionScriptName</strong>: <span>&nbsp;&nbsp;</span>Name of one of the files in the container that will be exectued at startup. Case sensitive.
 </li></ul>
 
-    <p><strong>xAzureVMDscConfiguration</strong> resource has following properties:</p>
+    <p><strong>DscConfiguration</strong> resource has following properties:</p>
     <ul style="list-style-type:disc; direction:ltr">
         <li>
             <strong>StorageAccountName</strong>: <span>&nbsp;&nbsp;</span>Specifies the name of the storage account for the VM.
@@ -157,7 +157,7 @@ In addition, this module works based on the following assumptions:
             <strong>BlobURI</strong>: <span>&nbsp;&nbsp;</span>Absolute Uri of the Blob.
         </li></ul>
 
-        <p><strong>xAzureVMDscExtension</strong> resource has following properties:</p>
+        <p><strong>DscExtension</strong> resource has following properties:</p>
         <ul style="list-style-type:disc; direction:ltr">
             <li>
                 <strong>VmName</strong>: <span>&nbsp;&nbsp;</span>Specifies name of the VM.  This is used together with ServiceName to construct a persistent vm object.
@@ -184,7 +184,7 @@ In addition, this module works based on the following assumptions:
                 <strong>ContainerName</strong>: <span>&nbsp;&nbsp;</span>Name of the Azure Storage Container where the ConfigurationArchive is located.
             </li>
             <li>
-                <strong>Force</strong>: <span>&nbsp;&nbsp;</span>By default xAzureVMDscExtension will not overwrite any existing blobs. Use -Force to overwrite them.
+                <strong>Force</strong>: <span>&nbsp;&nbsp;</span>By default DscExtension will not overwrite any existing blobs. Use -Force to overwrite them.
             </li>
             <li>
                 <strong>ReferenceName</strong>: <span>&nbsp;&nbsp;</span>The Extension Reference Name
@@ -216,11 +216,11 @@ In addition, this module works based on the following assumptions:
 <li>Update the following names by replacing MSFT with your company/community name and replacing the
 <strong>&quot;x&quot;</strong> with <strong>&quot;c&quot;</strong> (short for &quot;Community&quot;) or another prefix of your choice:
 <ul>
-<li><strong>Module name (ex: xAzure</strong> becomes <strong>cAzure</strong>) </li><li><strong>Resource folder (ex: MSFT_xAzureVM</strong> becomes <strong>Contoso_cAzureVM</strong>)
-</li><li><strong>Resource file name (ex: MSFT_xAzureVM</strong> becomes <strong>Contoso_cAzureVM</strong>)
-</li><li><strong>Resource Friendly Name (ex: xAzureVM</strong> becomes <strong>cAzureVM</strong>)
-</li><li><strong>MOF class name (ex: MSFT_xAzureVM</strong> becomes <strong>Contoso_cAzureVM</strong>)
-</li><li><strong>Filename for the &lt;resource&gt;.schema.mof (ex: MSFT_xAzureVM</strong>.schema.mof becomes
+<li><strong>Module name (ex: xAzure</strong> becomes <strong>cAzure</strong>) </li><li><strong>Resource folder (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
+</li><li><strong>Resource file name (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
+</li><li><strong>Resource Friendly Name (ex: </strong> becomes <strong>cAzureVM</strong>)
+</li><li><strong>MOF class name (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
+</li><li><strong>Filename for the &lt;resource&gt;.schema.mof (ex: </strong>.schema.mof becomes
 <strong>Contoso_cAzureVM</strong>.schema.mof) </li></ul>
 </li><li>Update module and metadata information in the module manifest </li><li>Update any configuration that use these resources </li></ol>
 <p><em>We reserve resource and module names without prefixes (&quot;x&quot; or &quot;c&quot;) for future use (e.g. &quot;MSFT_**RealResourceName**&quot; or &quot;**RealResourceName**&quot;). If the next version of Windows Server ships with a &quot;**RealResourceName**&quot; resource, we don't want to break
@@ -229,25 +229,25 @@ In addition, this module works based on the following assumptions:
 
 <p>0.1.3</p>
     <ul style="list-style-type:disc; direction:ltr">
-    <li>Introduce <strong>xAzureDSCExtension</strong>, <strong>xAzureVMDscConfiguration</strong> </li>
-    <li>Minor bug fix in <strong>xAzureStorageAccount</strong> to make Folder no longer a mandatory propert</li>
+    <li>Introduce <strong>xAzureDSCExtension</strong>, <strong>DscConfiguration</strong> </li>
+    <li>Minor bug fix in <strong></strong> to make Folder no longer a mandatory propert</li>
     </ul>
 
 <p>0.1.2</p>
 Release with the following resources
 <ul style="list-style-type:disc; direction:ltr">
-<li><strong>xAzureSqlDatabase</strong> creates Azure SQL Database</li>
-<li><strong>xAzureSqlDatabaseServerFirewallRule</strong> creates Azure SQL Database Server Firewall Rule</li>
+<li><strong></strong> creates Azure SQL Database</li>
+<li><strong>ServerFirewallRule</strong> creates Azure SQL Database Server Firewall Rule</li>
 </ul>
 
 <p>0.1.0</p>
 Initial release with the following resources
 <ul style="list-style-type:disc; direction:ltr">
-<li><strong>xAzureAffinityGroup</strong> defines the relationship between compute and storage
-</li><li><strong>xAzureQuickVM</strong> simple resource for creating VMs with limited options
-</li><li><strong>xAzureService</strong> creates a cloud service for the VMs </li><li><strong>xAzureStorageAccount</strong> creates the online storage account where the blobs for the test environment will reside
-</li><li><strong>xAzureSubscription</strong> sets the current Azure subscription context
-</li><li><strong>xAzureVM</strong>creates a virtual machine in Azure including access to VM Guest extensions
+<li><strong></strong> defines the relationship between compute and storage
+</li><li><strong></strong> simple resource for creating VMs with limited options
+</li><li><strong></strong> creates a cloud service for the VMs </li><li><strong></strong> creates the online storage account where the blobs for the test environment will reside
+</li><li><strong></strong> sets the current Azure subscription context
+</li><li><strong></strong>creates a virtual machine in Azure including access to VM Guest extensions
 </li></ul>
 <h1 style="margin-bottom:0pt; font-family:Calibri Light; color:#2e74b5; font-size:large">
 Examples</h1>

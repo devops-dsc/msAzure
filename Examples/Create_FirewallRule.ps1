@@ -14,20 +14,26 @@ configuration CreateSqlDatabaseServerFirewallRule
         $azurePublishSettingsFile
     )
     
-    Import-DscResource -Name MSFT_xAzureSqlDatabaseServerFirewallRule	   
+    Import-DscResource -Name 	   
 	
 
-    # Verify working directory    if ((test-path $workingDirectory) -eq $false)     {        Write-Warning 'The working directory does not exist.  Exiting script.'        Exit    }
+    # Verify working directory
+    if ((test-path $workingDirectory) -eq $false) 
+    {
+        Write-Warning 'The working directory does not exist.  Exiting script.'
+        Exit
+    }
 
     node localhost 
     {
-	    xAzureSqlDatabaseServerFirewallRule firewallRule
+	    ServerFirewallRule firewallRule
         {
 		    RuleName = $ruleName		
             ServerName = $serverName    
 		    StartIPAddress = $startIPAddress
 		    EndIPAddress = $endIPAddress
-            AzureSubscriptionName = $azureSubscriptionName            AzurePublishSettingsFile = $azurePublishSettingsFile
+            AzureSubscriptionName = $azureSubscriptionName
+            AzurePublishSettingsFile = $azurePublishSettingsFile
 	    }
         
         #LocalConfigurationManager 
@@ -49,7 +55,8 @@ $script:configData =
                 );      
 }  
 
-#Sample use (please change values of parameters according to your scenario): $workingDirectory = 'C:\test'
+#Sample use (please change values of parameters according to your scenario): 
+$workingDirectory = 'C:\test'
 $azureSubscriptionName = 'Visual Studio Ultimate with MSDN'
 $azurePublishSettingsFile = Join-Path $workingDirectory 'visual.publishsettings'
 $ruleName = "ruleName"
