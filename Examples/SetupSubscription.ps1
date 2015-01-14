@@ -11,7 +11,7 @@ $workingdir = split-path $myinvocation.mycommand.path
 
 Configuration CreateAzureSubscription
 {
-    Import-DscResource -Module xAzure
+    Import-DscResource -Module msAzure
 
     Node $AllNodes.NodeName
     {

@@ -36,7 +36,7 @@ if (!$Instance) {
 # DSC Configuration
 Configuration CreateAzureTestVMs
 {
-    Import-DscResource -Module xAzure
+    Import-DscResource -Module msAzure
 
     Node $AllNodes.NodeName 
     {

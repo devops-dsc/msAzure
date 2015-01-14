@@ -9,10 +9,10 @@ instance of  as $1ref
 {
 ResourceID = "[]MSDN";
  Ensure = "Present";
- AzurePublishSettingsFile = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\MSDN.publishsettings";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::46::9::";
+ AzurePublishSettingsFile = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\MSDN.publishsettings";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::46::9::";
  AzureSubscriptionName = "Visual Studio Ultimate with MSDN";
- ModuleName = "xAzure";
+ ModuleName = "msAzure";
  ModuleVersion = "0.1.3";
 
  ConfigurationName = "CreateAzureTestVMs";
@@ -25,9 +25,9 @@ ResourceID = "[]TestVMAffinity";
  Location = "West US";
  Ensure = "Present";
  Label = "TestVMWestUS2783158150";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::52::9::";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::52::9::";
  Name = "TestVMWestUS2783158150";
- ModuleName = "xAzure";
+ ModuleName = "msAzure";
  ModuleVersion = "0.1.3";
 
 DependsOn = {
@@ -45,8 +45,8 @@ ResourceID = "[]TestVMStorage";
  Ensure = "Present";
  Label = "testvmstorage2783158150";
  AffinityGroup = "TestVMWestUS2783158150";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::61::9::";
- ModuleName = "xAzure";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::61::9::";
+ ModuleName = "msAzure";
  ModuleVersion = "0.1.3";
 
 DependsOn = {
@@ -64,8 +64,8 @@ ResourceID = "[]TestVMService";
  Label = "testvmservice2783158150";
  Description = "Service created for Test Virtual Machines";
  AffinityGroup = "TestVMWestUS2783158150";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::70::9::";
- ModuleName = "xAzure";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::70::9::";
+ ModuleName = "msAzure";
  ModuleVersion = "0.1.3";
 
 DependsOn = {
@@ -79,9 +79,9 @@ instance of DscConfiguration as $DscConfiguration1ref
 {
 ResourceID = "[DscConfiguration]ServerCoreFiles";
  StorageAccountName = "testvmstorage2783158150";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::80::9::DscConfiguration";
- ModuleName = "xAzure";
- ConfigurationPath = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\ServerCoreTest\\ServerCoreTest.ps1";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::80::9::DscConfiguration";
+ ModuleName = "msAzure";
+ ConfigurationPath = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\ServerCoreTest\\ServerCoreTest.ps1";
  ModuleVersion = "0.1.3";
 
  ConfigurationName = "CreateAzureTestVMs";
@@ -101,10 +101,10 @@ ResourceID = "[]TestVM1";
  StorageAccountName = "testvmstorage2783158150";
  Credential = $MSFT_Credential1ref;
  Ensure = "Present";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::86::9::";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::86::9::";
  Name = "TestVM1";
  Windows = True;
- ModuleName = "xAzure";
+ ModuleName = "msAzure";
  ImageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd";
  ModuleVersion = "0.1.3";
  InstanceSize = "Medium";
@@ -121,9 +121,9 @@ instance of DscExtension as $DscExtension1ref
 ResourceID = "[DscExtension]ServerCoreDSCTest";
  ServiceName = "testvmservice2783158150";
  StorageAccountName = "testvmstorage2783158150";
- SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\xAzure\\Examples\\CreateWithDSCExtension.ps1::99::9::DscExtension";
+ SourceInfo = "C:\\Program Files\\WindowsPowerShell\\Modules\\msAzure\\Examples\\CreateWithDSCExtension.ps1::99::9::DscExtension";
  VMName = "TestVM1";
- ModuleName = "xAzure";
+ ModuleName = "msAzure";
  Configuration = "ServerCoreTest";
  ConfigurationArchive = "ServerCoreTest.ps1.zip";
  ModuleVersion = "0.1.3";

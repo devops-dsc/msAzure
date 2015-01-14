@@ -2,7 +2,7 @@
 
 Configuration PublishToStorage
 {
-    Import-DscResource -Module xAzure
+    Import-DscResource -Module msAzure
 
     DscConfiguration Publish
     {
