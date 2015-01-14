@@ -1,5 +1,5 @@
 Invoke-WebRequest -Uri 'http://nuget.org/nuget.exe' -OutFile "$env:TEMP\NuGet.exe"
-&"$env:TEMP\NuGet.exe" install xJea -NoCache -Source http://msconfiggallery.cloudapp.net/api/v2/ -ExcludeVersion -PackageSaveMode "nuspec" -OutputDirectory "$env:ProgramFiles\WindowsPowerShell\Modules"
+&"$env:TEMP\NuGet.exe" install msJea -NoCache -Source http://msconfiggallery.cloudapp.net/api/v2/ -ExcludeVersion -PackageSaveMode "nuspec" -OutputDirectory "$env:ProgramFiles\WindowsPowerShell\Modules"
 
 &'winrm' quickconfig -quiet
 

@@ -29,7 +29,7 @@ $SetupSubscription = Join-Path $workingdir 'SetupSubscription.ps1'
 # DSC Configuration
 Configuration DestroyAzureTestEnvironment
 {
-    Import-DscResource -Module xAzure
+    Import-DscResource -Module msAzure
 
     Node $AllNodes.NodeName 
     {

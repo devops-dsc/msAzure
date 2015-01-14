@@ -1,6 +1,6 @@
 <div id="longDesc"><span style="font-family:Calibri; font-size:medium">
 <h1 style="font-family:Calibri Light; color:#2e74b5; font-size:large">Introduction</h1>
-<p>The <strong>xAzure</strong> module is a set of DSC resources that provide a method of depoying virtual machines in Microsoft Azure by applying a configuration to your local machine. This is primarily intended to enable testing how a new virtual machine can
+<p>The <strong>msAzure</strong> module is a set of DSC resources that provide a method of depoying virtual machines in Microsoft Azure by applying a configuration to your local machine. This is primarily intended to enable testing how a new virtual machine can
  be used to evaluate a scenario or application without consuming resources from the local machine.
 <br>
 <br>
@@ -17,10 +17,10 @@ This module includes 6 DSC resources that automate provisioning of resources in 
 </li><li><strong>ServerFirewallRule</strong> creates Azure SQL Database Server Firewall Rule
 </li></ul>
 <br>
-<p><strong>All of the resources in the DSC Resource Kit are provided AS IS, and are not supported through any Microsoft standard support program or service. The &quot;&quot;x&quot; in xAzure stands for experimental</strong>, which means that these resources will be
+<p><strong>All of the resources in the DSC Resource Kit are provided AS IS, and are not supported through any Microsoft standard support program or service. The &quot;&quot;x&quot; in msAzure stands for experimental</strong>, which means that these resources will be
 <strong>fix forward</strong> and monitored by the module owner(s).</p>
 <p>Please leave comments, feature requests, and bug reports in the Q &amp; A tab for this module.</p>
-<p>If you would like to modify <strong>xAzure</strong> module, feel free. When modifying, please update the module name, resource friendly name, and MOF class name (instructions below). As specified in the license, you may copy or modify this resource as long
+<p>If you would like to modify <strong>msAzure</strong> module, feel free. When modifying, please update the module name, resource friendly name, and MOF class name (instructions below). As specified in the license, you may copy or modify this resource as long
  as they are used on the Windows Platform.</p>
 <p>For more information about Windows PowerShell Desired State Configuration, check out the blog posts on the
 <a href="http://blogs.msdn.com/b/powershell/"><span style="color:#0000ff">PowerShell Blog</span></a> (<a href="http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx"><span style="color:#0000ff">this</span></a>
@@ -29,10 +29,10 @@ This module includes 6 DSC resources that automate provisioning of resources in 
 <span style="color:#0000ff">PowerShell Magazine</span></a>. For more information on the DSC Resource Kit, check out
 <a href="http://go.microsoft.com/fwlink/?LinkID=389546"><span style="color:#0000ff">this blog post</span></a>.</p>
 <h1 style="color:#2e74b5; font-family:Calibri Light; font-size:large">Installation</h1>
-<p>To install <strong>xAzure</strong> module</p>
+<p>To install <strong>msAzure</strong> module</p>
 <ul style="list-style-type:disc; direction:ltr">
 <li>If you are using WMF4 / PowerShell Version 4: Unzip the content under $env:ProgramFiles\WindowsPowerShell\Modules folder </li>
-<li>If you are using WMF5 Preview: From an elevated PowerShell session run ‘Install-Module xAzure’</li>
+<li>If you are using WMF5 Preview: From an elevated PowerShell session run ‘Install-Module msAzure’</li>
 </ul>
 <p>To confirm installation:</p>
 <ul style="list-style-type:disc; direction:ltr">
@@ -216,7 +216,7 @@ In addition, this module works based on the following assumptions:
 <li>Update the following names by replacing MSFT with your company/community name and replacing the
 <strong>&quot;x&quot;</strong> with <strong>&quot;c&quot;</strong> (short for &quot;Community&quot;) or another prefix of your choice:
 <ul>
-<li><strong>Module name (ex: xAzure</strong> becomes <strong>cAzure</strong>) </li><li><strong>Resource folder (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
+<li><strong>Module name (ex: msAzure</strong> becomes <strong>cAzure</strong>) </li><li><strong>Resource folder (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
 </li><li><strong>Resource file name (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
 </li><li><strong>Resource Friendly Name (ex: </strong> becomes <strong>cAzureVM</strong>)
 </li><li><strong>MOF class name (ex: </strong> becomes <strong>Contoso_cAzureVM</strong>)
@@ -229,7 +229,7 @@ In addition, this module works based on the following assumptions:
 
 <p>0.1.3</p>
     <ul style="list-style-type:disc; direction:ltr">
-    <li>Introduce <strong>xAzureDSCExtension</strong>, <strong>DscConfiguration</strong> </li>
+    <li>Introduce <strong>msAzureDSCExtension</strong>, <strong>DscConfiguration</strong> </li>
     <li>Minor bug fix in <strong></strong> to make Folder no longer a mandatory propert</li>
     </ul>
 
@@ -275,7 +275,7 @@ $test = .\Create.ps1 * In this example, the Instance ID would be returned as $te
 When running the .\Create.ps1 script, there is an immediate prompt for credentials. The value collected here will be used to create the account inside the VM that is added to the local administrators group.<br>
 <strong>Note</strong> - the password will be stored in clear text inside the MOF file in the example, however the resource has been designed to work with encrypted credentials. For more information see: http://blogs.msdn.com/b/powershell/archive/2014/01/31/want-to-secure-credentials-in-windows-powershell-desired-state-configuration.aspx</p>
 <p><strong>Understanding HOW TO TEST JEA:</strong><br>
-As a side benefit of this solution it is possible to test PowerShell Just Enough Administration. Within the ScriptExtensionFiles folder you will find a script named InstallJEA.ps1. This delivers prerequisites for testing including downloads of the xJEA resource
+As a side benefit of this solution it is possible to test PowerShell Just Enough Administration. Within the ScriptExtensionFiles folder you will find a script named InstallJEA.ps1. This delivers prerequisites for testing including downloads of the msJea resource
  and WMF5, installing them both, and enabling remote access. You have the option to remove comment blocks that would also execute steps inside the VM to configure JEA. This provides flexibility to either test JEA on your own or have the script build out an
  endpoint automatically.</p>
 </span></div>
